@@ -91,14 +91,8 @@ var Cluster = Backbone.Model.extend({
                 success: function(model, response){
                     var version = hello.get("version");
                     if (version && version.number) {
-                        version = version.number;
-                        var _vArray = version.split(".");
-                        if (_vArray.length > 2 && _model.checkVersion(_vArray[0], _vArray[1], _vArray[2])) {
-                            _model.versionVerified(version);
-                            _model.initCluster(connection);
-                        } else {
-                            _model.yellAboutVersion(version);
-                        }
+                        _model.versionVerified(version);
+                        _model.initCluster(connection);
                     } else {
                         _model.yellAboutVersion("n/a");
                     }
